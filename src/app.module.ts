@@ -7,7 +7,11 @@ import { UsersModule } from './users/users.module';
 import { ProjectsModule } from './projects/projects.module';
 import { IssuesModule } from './issues/issues.module';
 
-TypeOrmModule.forRoot({
+
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -16,10 +20,8 @@ TypeOrmModule.forRoot({
   database: 'jira',
   autoLoadEntities: true,
   synchronize: true
-})
-
-@Module({
-  imports: [UsersModule, ProjectsModule, IssuesModule],
+}),
+    UsersModule, ProjectsModule, IssuesModule],
   controllers: [AppController, UsersController],
   providers: [AppService],
 })

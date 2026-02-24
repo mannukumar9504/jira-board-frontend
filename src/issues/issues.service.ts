@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Issue } from './issue.entity';
+import { DeepPartial, Repository } from 'typeorm';
 
 @Injectable()
 export class IssuesService {
@@ -9,7 +10,7 @@ export class IssuesService {
         private repo: Repository<Issue>
     ){}
     
-    create(dto){
+    create(dto: DeepPartial<Issue>[]) {
         const issue = this.repo.create(dto);
         return this.repo.save(issue);
     }
