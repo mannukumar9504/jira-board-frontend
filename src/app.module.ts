@@ -11,7 +11,7 @@ import { IssuesModule } from './issues/issues.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
+  TypeOrmModule.forRoot({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -20,8 +20,7 @@ import { IssuesModule } from './issues/issues.module';
   database: 'jira',
   autoLoadEntities: true,
   synchronize: true
-}),
-    UsersModule, ProjectsModule, IssuesModule],
+}),UsersModule, ProjectsModule, IssuesModule],
   controllers: [AppController, UsersController],
   providers: [AppService],
 })
