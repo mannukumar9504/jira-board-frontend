@@ -1,0 +1,59 @@
+/* Container */
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa; /* light gray background */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input & Textarea */
+input, textarea, select {
+  width: 82%;
+  padding: 12px 15px;
+  margin: 16px 0px 0px 9px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #007bff; /* blue border on focus */
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+/* Select dropdown */
+select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff; /* primary blue */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Placeholder styling */
+input::placeholder, textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}

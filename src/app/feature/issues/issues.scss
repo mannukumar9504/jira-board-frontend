@@ -1,0 +1,87 @@
+/* Container link */
+.title-board {
+    border: solid blue 2px;
+}
+a[routerLink="/create"] {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #007bff; /* blue button */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+a[routerLink="/create"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Issue section */
+.issue-section {
+  background-color: #f8f9fa; /* light gray card */
+  width: fit-content;
+  border: solid;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.issue-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Issue title */
+.issue-section h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Issue description */
+.issue-section p {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0 20px;
+}
+
+/* Select dropdown */
+.issue-section select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.issue-section select:hover, .issue-section select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Delete button */
+.issue-section button {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: white;
+  background-color: #dc3545; /* red button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.issue-section button:hover {
+  background-color: #a71d2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

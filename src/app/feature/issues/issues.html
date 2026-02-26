@@ -1,0 +1,18 @@
+<div class="title-board">
+<h3>Jira Board</h3>
+<button class="create-btn" (click)="openCreateIssue()">Create Issue</button>
+
+
+<div *ngFor="let i of issues" class="issue-section">
+    <h3>{{i?.title}}</h3>
+    <p>{{i?.description}}</p>
+
+    <select (change)="changeStatus(i, $event)" >
+        <option [selected]="i.status === 'todo'" value="todo">Todo</option>
+        <option [selected]="i.status === 'inprogress'" value="inprogress">In Progress</option>
+        <option [selected]="i.status === 'done'" value="done">Done</option>
+    </select>
+
+    <button (click)="delete(i.id)">Delete</button>
+</div>
+</div>
