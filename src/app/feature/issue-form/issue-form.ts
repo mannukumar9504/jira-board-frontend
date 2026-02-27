@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IssuesService } from '../../core/services/issues';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class IssueForm {
   form!: FormGroup;
+  @ViewChild('inputRef') input! : ElementRef
 
   constructor(private fb: FormBuilder,
     private service: IssuesService,
@@ -27,8 +28,15 @@ export class IssueForm {
     });
   }
 
-  async submit() {
-    this.service.addIssue(this.form.value as any);
+  ngAfterViewInit(): void {
+   this.input.nativeElement.focus();
+  }
+
+  submit() {
+    this.service.addIssue(this.form.value as any).subscribe({
+      next: res => console.log(res),
+      error: err => console.error(err)
+    });
     this.dialogRef.close(true);
   }
 

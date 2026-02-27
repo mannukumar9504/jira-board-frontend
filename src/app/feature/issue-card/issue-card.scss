@@ -1,0 +1,17 @@
+.issue-card {
+  border: 1px solid #2f2c2c;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.issue-card-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.issue-card-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}

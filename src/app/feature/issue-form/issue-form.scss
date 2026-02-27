@@ -1,7 +1,6 @@
 /* Container */
 form {
   max-width: 500px;
-  margin: 50px auto;
   padding: 30px;
   background-color: #f8f9fa; /* light gray background */
   border-radius: 12px;
@@ -30,20 +29,26 @@ input:focus, textarea:focus, select:focus {
 select {
   appearance: none;
   background-color: #fff;
+  width: 90% !important;
   cursor: pointer;
 }
 
 /* Button */
-button[type="submit"] {
-  width: 100%;
+button {
+  width: 40%;
   padding: 12px;
+  margin: 10px;
   font-size: 18px;
+  gap: 10px;
   color: #fff;
   background-color: #007bff; /* primary blue */
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  &.cancel-button {
+    background-color: rgb(244, 122, 122) ;
+  }
 }
 
 button[type="submit"]:hover {

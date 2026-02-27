@@ -2,17 +2,66 @@
 <h3>Jira Board</h3>
 <button class="create-btn" (click)="openCreateIssue()">Create Issue</button>
 
+<div class="issue-container"> 
+<div class="column">
+    <h2>Todo</h2>   
+    <app-issue-card *ngFor="let i of issues | status: 'todo'" class="issue-section">
+  <div card-title>
+    {{ i?.title }}
+  </div>
+  <p>{{ i?.description }}</p>
 
-<div *ngFor="let i of issues" class="issue-section">
-    <h3>{{i?.title}}</h3>
-    <p>{{i?.description}}</p>
-
-    <select (change)="changeStatus(i, $event)" >
-        <option [selected]="i.status === 'todo'" value="todo">Todo</option>
-        <option [selected]="i.status === 'inprogress'" value="inprogress">In Progress</option>
-        <option [selected]="i.status === 'done'" value="done">Done</option>
+  <div card-actions>
+    <select (change)="changeStatus(i, $event)">
+      <option [selected]="i.status === 'todo'" value="todo">Todo</option>
+      <option [selected]="i.status === 'inprogress'" value="inprogress">In Progress</option>
+      <option [selected]="i.status === 'done'" value="done">Done</option>
     </select>
-
     <button (click)="delete(i.id)">Delete</button>
+
+  </div>
+
+</app-issue-card>
+</div>
+<div class="column">
+    <h2>InProgress</h2>   
+    <app-issue-card *ngFor="let i of issues | status: 'inprogress'" class="issue-section">
+  <div card-title>
+    {{ i?.title }}
+  </div>
+  <p>{{ i?.description }}</p>
+
+  <div card-actions>
+    <select (change)="changeStatus(i, $event)">
+      <option [selected]="i.status === 'todo'" value="todo">Todo</option>
+      <option [selected]="i.status === 'inprogress'" value="inprogress">In Progress</option>
+      <option [selected]="i.status === 'done'" value="done">Done</option>
+    </select>
+    <button (click)="delete(i.id)">Delete</button>
+
+  </div>
+
+</app-issue-card>
+</div>
+<div class="column">
+    <h2>Done</h2>   
+    <app-issue-card *ngFor="let i of issues | status: 'done'" class="issue-section">
+  <div card-title>
+    {{ i?.title }}
+  </div>
+  <p>{{ i?.description }}</p>
+
+  <div card-actions>
+    <select (change)="changeStatus(i, $event)">
+      <option [selected]="i.status === 'todo'" value="todo">Todo</option>
+      <option [selected]="i.status === 'inprogress'" value="inprogress">In Progress</option>
+      <option [selected]="i.status === 'done'" value="done">Done</option>
+    </select>
+    <button (click)="delete(i.id)">Delete</button>
+
+  </div>
+
+</app-issue-card>
+</div>
 </div>
 </div>

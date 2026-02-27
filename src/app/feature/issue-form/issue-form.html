@@ -1,5 +1,6 @@
 <form (ngSubmit)="submit()" [formGroup] = "form">
-    <input placeholder="Title" formControlName="title">
+  <h3>Create Ticket</h3>
+    <input placeholder="Title" formControlName="title" #inputRef>
     <textarea formControlName="description" placeholder="Description"></textarea>
 
     <select formControlName="status">
@@ -9,7 +10,7 @@
     </select>
     <div class="actions">
     <button type="submit">Save</button>
-    <button type="button" (click)="cancel()">Cancel</button>
+    <button type="button" class="cancel-button"  (click)="cancel()">Cancel</button>
   </div>
 
 </form>
