@@ -1,5 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
+export enum IssueStatus {
+  TODO = 'todo',
+  INPROGRESS = 'inprogress',
+  DONE = 'done'
+}
+
 @Entity()
 export class Issue {
   @PrimaryGeneratedColumn()
@@ -11,6 +17,10 @@ export class Issue {
   @Column('text')
   description: string;
 
-  @Column({ default: 'todo' })
+  @Column({ 
+    type: 'enum',
+    enum: IssueStatus,
+    default: 'todo' 
+  })
   status: string;
 }
