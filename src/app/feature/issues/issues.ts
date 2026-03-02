@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { IssuesService } from '../../core/services/issues';
-import { Issue } from '../../core/models/issues';
+import { Issue, Logger, LOGGER } from '../../core/models/issues';
 import { CommonModule } from '@angular/common';
 import { IssueForm } from '../issue-form/issue-form';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,14 +21,17 @@ export class Issues {
   constructor(private service: IssuesService, 
     private dialogue: MatDialog, 
     private cd: ChangeDetectorRef,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    @Inject(LOGGER) private loggers: Logger[]
   ) {}
 
   ngOnInit(): void {
     this.service.getIssues().subscribe((data: any) => {
      this.issues = [...data];
      this.cd.detectChanges();
+     
     });
+    this.loggers.forEach(logger => logger.log('Hello'));
   }
 
   openCreateIssue() {

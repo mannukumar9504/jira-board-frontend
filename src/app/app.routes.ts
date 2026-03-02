@@ -4,5 +4,9 @@ import { IssueForm } from './feature/issue-form/issue-form';
 
 export const routes: Routes = [
     {path: '', component: Issues},
-    {path: 'create', component: IssueForm}
+    {path: 'project', 
+        loadComponent: () =>  import('./feature/project/project')
+        .then( m => m.Project)
+    }
+
 ];

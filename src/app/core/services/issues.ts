@@ -16,6 +16,9 @@ export class IssuesService {
       tap(issues => this.issues$.next(issues))
     )
   }
+  checkIssueName(name:string) {
+    return this.http.get<boolean>(`${this.baseUrl}?name=${name}`);
+  }
 
   addIssue(issue: Omit<Issue,'id'>) {
     console.log("issue==>",issue);
